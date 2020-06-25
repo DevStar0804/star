@@ -1,29 +1,22 @@
+# Status:
+> Needs clean up
+
 # angular2-webpack-seed
-A starter kit featuring Angular 2, TypeScript, and Webpack by [AngularClass](https://angularclass.com)
+An Angular2 WebPack seed featuring hot-module-reloading of components
 
-### install
+
+
+### build
 ```bash
-$ npm webpack -global
-$ npm webpack-dev-server -global
-$ npm install
+$ npm start # open localhost:8080
 ```
-
-### server
-```bash
-$ webpack-dev-server
-```
-
 ### auto build files
 ```bash
-$ webpack --watch
+$ npm run watch
 ```
 
+
 ### Todo
+* Refactor webpack config to use alias
 * hot-component-reloading
-
-
-<br><br><br>
-
-[![AngularClass](https://angularclass.com/images/ng-crown.svg  "Angular Class")](https://angularclass.com)
-##[AngularClass](https://angularclass.com)
-> Learn Angular in 2 days from the best
+* better way to include angular2
