@@ -1,7 +1,8 @@
 /// <reference path="../../../typings/_custom.d.ts" />
 
 // Angular 2
-import {Component, View, NgIf, CSSClass} from 'angular2/angular2';
+import {Component, View} from 'angular2/angular2';
+import {NgIf, CSSClass} from 'angular2/directives';
 
 import {Search} from './autosuggest/Search';
 import {Timeflies} from './timeflies/timeflies';

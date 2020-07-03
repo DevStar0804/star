@@ -3,7 +3,8 @@
 /*
  * Angular 2
  */
-import {Component, View, Directive, ElementRef} from 'angular2/angular2';
+import {Component, View, Directive} from 'angular2/annotations';
+import {ElementRef} from 'angular2/core';
 
 /*
  * TODO: refactor
