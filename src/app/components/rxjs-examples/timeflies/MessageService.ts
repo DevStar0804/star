@@ -1,4 +1,4 @@
-import {bind, Injectable} from 'angular2/angular2';
+import {bind, Injectable} from 'angular2/di';
 
 @Injectable()
 export class MessageService {
