@@ -1,6 +1,7 @@
 /// <reference path="../../../../typings/_custom.d.ts" />
 
-import {bind, Injectable, Http} from 'angular2/angular2'
+import {bind, Injectable} from 'angular2/di'
+import {Http} from 'angular2/http';
 
 import {ISearchable} from 'ISearchable';
 

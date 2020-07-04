@@ -3,14 +3,15 @@
 /*
  * Angular 2
  */
-import {Component, View} from 'angular2/angular2';
+import {Component, View} from 'angular2/annotations';
 import {RouteConfig} from 'angular2/router';
 
 /*
  * Directives
  */
-import {coreDirectives, formDirectives} from 'angular2/angular2';
+import {coreDirectives} from 'angular2/angular2';
 import {routerDirectives} from 'angular2/router';
+import {formDirectives} from 'angular2/forms';
 // Import all of our custom app directives
 import {appDirectives} from '../directives/directives';
 
