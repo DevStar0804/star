@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require("html-webpack-plugin");
 var path = require('path');
 var sliceArgs = Function.prototype.call.bind(Array.prototype.slice);
+var path = require('path');
 
 module.exports = {
   devtool: 'source-map',
