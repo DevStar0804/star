@@ -12,6 +12,8 @@
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 
   <base href="/">
+  <!-- ignore: Aplha 32 router fix -->
+  <script>baseElement = document.querySelector('base');baseElement.attr = baseElement.getAttribute;</script>
   <!-- styles -->
   <style>
     body {
@@ -20,10 +22,9 @@
   </style>
   <!--
     Angular 2
-    traceur-runtime: is only needed for ES6 browser polyfill
-    this is not the full traceur only the polyfills
+    ES6 browser shim
   -->
-  <script src="/lib/traceur-runtime.min.js"></script>
+  <script src="/lib/es6-shim.js"></script>
 </head>
 <body>
 
@@ -36,7 +37,7 @@
   <!-- Angular2 files -->
   <script src="/__build__/angular2.js"></script>
   <!-- App script -->
-  <script src="/__build__/app.js"></script>
+  <script src="/__build__/app-simple.js"></script>
   <!-- TODO: replace /app-simple.js with /app.js -->
 </body>
 </html>

@@ -6,10 +6,10 @@ import {
   HTML5LocationStrategy
 } from 'angular2/router';
 
-export var HTML5_LOCATION_BINDINGS = [
+export var html5locationInjectables = [
   bind(LocationStrategy).toClass(HTML5LocationStrategy)
 ];
 
-export var HASH_LOCATION_BINDINGS = [
+export var hashlocationInjectables = [
   bind(LocationStrategy).toClass(HashLocationStrategy)
 ];

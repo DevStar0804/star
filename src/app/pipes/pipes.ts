@@ -11,7 +11,7 @@ import {capitalize} from './CapitalizePipe';
 import {rxAsync} from './RxPipe';
 
 
-export var APP_PIPES = [
+export var appPipes = [
   Pipes.extend({
     'async': rxAsync,
     'capitalize': capitalize
