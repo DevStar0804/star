@@ -7,19 +7,19 @@ import {
   PreGeneratedChangeDetection
 } from 'angular2/change_detection';
 
-export var JIT_CHANGEDETECTION_BINDINGS = [
+export var jitInjectables = [
   bind(ChangeDetection).toClass(JitChangeDetection)
 ];
 
-export var DYNAMIC_CHANGEDETECTION_BINDINGS = [
+export var dynamicInjectables = [
   bind(ChangeDetection).toClass(DynamicChangeDetection)
 ];
 
-export var PREGENERATED_CHANGEDETECTION_BINDINGS = [
+export var preGeneratedInjectables = [
   bind(ChangeDetection).toClass(PreGeneratedChangeDetection)
 ];
 
-export var BEST_CHANGEDETECTION_BINDINGS = [
-  PreGeneratedChangeDetection.isSupported() ? PREGENERATED_CHANGEDETECTION_BINDINGS :
-  JitChangeDetection.isSupported() ? JIT_CHANGEDETECTION_BINDINGS : DYNAMIC_CHANGEDETECTION_BINDINGS
+export var bestChangeDetectionInjectables = [
+  PreGeneratedChangeDetection.isSupported() ? preGeneratedInjectables :
+  JitChangeDetection.isSupported() ? jitInjectables : dynamicInjectables
 ];
