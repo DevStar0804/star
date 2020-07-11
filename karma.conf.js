@@ -50,6 +50,7 @@ module.exports = function(config) {
               /node_modules/
             ]
           },
+          { test: /reflect-metadata/, loader: "imports?require=>false" },
           { test: /\.json$/, loader: 'json' },
           { test: /\.html$/, loader: 'raw' },
           { test: /\.css$/,  loader: 'raw' }
