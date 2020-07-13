@@ -29,10 +29,6 @@ declare module "angular2/router" {
   }
 }
 
-declare module "angular2/tools" {
-  function enableDebugTools(appRef: any): any;
-}
-
 declare module "angular2/debug" {
   var ELEMENT_PROBE_BINDINGS: any;
   class DebugElementViewListener {
@@ -60,7 +56,7 @@ declare module "angular2/pipes" {
     _observable: any;
     _updateLatestValue(value: any): any;
     _subscribe(obs: any): any;
-    transform(obs: any, args?: Array<any>): any;
+    transform(obs: any, args?: List<any>): any;
     onDestroy(): void;
   }
 }
@@ -355,7 +351,7 @@ declare module "angular2/change_detection" {
   interface Pipe {
     supports(obj: any): boolean;
     onDestroy(): void;
-    transform(value: any, args: Array<any>): any;
+    transform(value: any, args: List<any>): any;
   }
   class Pipes {
     static extend(pipes: any);
@@ -384,7 +380,7 @@ declare module "angular2/change_detection" {
 
     supports(obj: any): boolean;
     onDestroy(): void;
-    transform(value: any, args: Array<any>): any;
+    transform(value: any, args: List<any>): any;
   }
   var defaultPipeRegistry: any;
   var defaultPipes: any;
@@ -628,7 +624,7 @@ declare module "angular2/render" {
     /**
      * Calls a method on an element.
      */
-    invokeElementMethod(location: any, methodName: string, args: Array<any>): void;
+    invokeElementMethod(location: any, methodName: string, args: List<any>): void;
     /**
      * Sets the value of a text node.
      */
@@ -737,7 +733,7 @@ declare module "angular2/src/dom/browser_adapter" {
         attrToPropMap: any;
         query(selector: string): any;
         querySelector(el: any, selector: string): Node;
-        querySelectorAll(el: any, selector: string): Array<any>;
+        querySelectorAll(el: any, selector: string): List<any>;
         on(el: any, evt: any, listener: any): void;
         onAndCancel(el: any, evt: any, listener: any): Function;
         dispatchEvent(el: any, evt: any): void;
@@ -752,8 +748,8 @@ declare module "angular2/src/dom/browser_adapter" {
         firstChild(el: any): Node;
         nextSibling(el: any): Node;
         parentElement(el: any): any;
-        childNodes(el: any): Array<Node>;
-        childNodesAsList(el: any): Array<any>;
+        childNodes(el: any): List<Node>;
+        childNodesAsList(el: any): List<any>;
         clearNodes(el: any): void;
         appendChild(el: any, node: any): void;
         removeChild(el: any, node: any): void;
@@ -781,7 +777,7 @@ declare module "angular2/src/dom/browser_adapter" {
         hasProperty(element: any, name: string): boolean;
         getElementsByClassName(element: any, name: string): any;
         getElementsByTagName(element: any, name: string): any;
-        classList(element: any): Array<any>;
+        classList(element: any): List<any>;
         addClass(element: any, classname: string): void;
         removeClass(element: any, classname: string): void;
         hasClass(element: any, classname: string): any;
@@ -828,7 +824,7 @@ declare module "angular2/src/dom/dom_adapter" {
         attrToPropMap: any;
         query(selector: string): any;
         querySelector(el: any, selector: string): Node;
-        querySelectorAll(el: any, selector: string): Array<any>;
+        querySelectorAll(el: any, selector: string): List<any>;
         on(el: any, evt: any, listener: any): void;
         onAndCancel(el: any, evt: any, listener: any): Function;
         dispatchEvent(el: any, evt: any): void;
@@ -843,8 +839,8 @@ declare module "angular2/src/dom/dom_adapter" {
         firstChild(el: any): Node;
         nextSibling(el: any): Node;
         parentElement(el: any): any;
-        childNodes(el: any): Array<Node>;
-        childNodesAsList(el: any): Array<any>;
+        childNodes(el: any): List<Node>;
+        childNodesAsList(el: any): List<any>;
         clearNodes(el: any): void;
         appendChild(el: any, node: any): void;
         removeChild(el: any, node: any): void;
@@ -872,7 +868,7 @@ declare module "angular2/src/dom/dom_adapter" {
         hasProperty(element: any, name: string): boolean;
         getElementsByClassName(element: any, name: string): any;
         getElementsByTagName(element: any, name: string): any;
-        classList(element: any): Array<any>;
+        classList(element: any): List<any>;
         addClass(element: any, classname: string): void;
         removeClass(element: any, classname: string): void;
         hasClass(element: any, classname: string): any;
@@ -919,7 +915,7 @@ declare module "angular2/src/dom/parse5_adapter" {
         attrToPropMap: any;
         query(selector: string): any;
         querySelector(el: any, selector: string): Node;
-        querySelectorAll(el: any, selector: string): Array<any>;
+        querySelectorAll(el: any, selector: string): List<any>;
         on(el: any, evt: any, listener: any): void;
         onAndCancel(el: any, evt: any, listener: any): Function;
         dispatchEvent(el: any, evt: any): void;
@@ -934,8 +930,8 @@ declare module "angular2/src/dom/parse5_adapter" {
         firstChild(el: any): Node;
         nextSibling(el: any): Node;
         parentElement(el: any): any;
-        childNodes(el: any): Array<Node>;
-        childNodesAsList(el: any): Array<any>;
+        childNodes(el: any): List<Node>;
+        childNodesAsList(el: any): List<any>;
         clearNodes(el: any): void;
         appendChild(el: any, node: any): void;
         removeChild(el: any, node: any): void;
@@ -963,7 +959,7 @@ declare module "angular2/src/dom/parse5_adapter" {
         hasProperty(element: any, name: string): boolean;
         getElementsByClassName(element: any, name: string): any;
         getElementsByTagName(element: any, name: string): any;
-        classList(element: any): Array<any>;
+        classList(element: any): List<any>;
         addClass(element: any, classname: string): void;
         removeClass(element: any, classname: string): void;
         hasClass(element: any, classname: string): any;
