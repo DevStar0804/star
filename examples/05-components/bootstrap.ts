@@ -10,7 +10,7 @@ import {Component, View} from 'angular2/angular2';
   Hello from Angular Class
   `
 })
-class AcWord {
+class App {
   constructor() {
     console.log('Angular Class Word component');
   }
