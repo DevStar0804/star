@@ -3,7 +3,8 @@
 /*
  * Angular 2 decorators and services
  */
-import {Directive, Component, View, ElementRef} from 'angular2/angular2';
+import {Directive, Component, View} from 'angular2/angular2';
+import {ElementRef} from 'angular2/core';
 import {RouteConfig, Router} from 'angular2/router';
 import {Http, Headers} from 'angular2/http';
 
@@ -16,7 +17,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 /*
  * Directive
- * XLarge is a simple directive to show how one is made
+ * XLarge is a simple directive to show how one of made
  */
 @Directive({
   selector: '[x-large]' // using [ ] means selecting attributes
@@ -38,7 +39,9 @@ class XLarge {
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
   // where, in this case, selector is the string 'app'
-  selector: 'app', // <app></app>
+  selector: 'app' // <app></app>
+})
+@View({
   // We need to tell Angular's compiler which directives are in our template.
   // Doing so will allow Angular to attach our behavior to an element
   directives: [ CORE_DIRECTIVES, FORM_DIRECTIVES, ROUTER_DIRECTIVES, XLarge ],
@@ -83,7 +86,6 @@ export class App {
   // These are member type
   title: string;
   data: Array<any> = []; // default data
-  // TypeScript public modifiers
   constructor(public http: Http) {
     this.title = 'Angular 2';
   }
@@ -136,7 +138,6 @@ export class App {
 
 /*
  * Please review the examples/ folder for more angular app examples
- * (The examples may not be updated as quickly. Please open an issue on github for us to update it)
  * you can change the `entry` in webpack.config to quickly view the examples
  * For help or questions please contact us at @AngularClass on twitter
  * or via chat on gitter at https://gitter.im/angular-class/angular2-webpack-starter
