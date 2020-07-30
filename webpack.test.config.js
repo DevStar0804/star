@@ -63,7 +63,7 @@ module.exports = {
         include: root('src'),
         loader: 'istanbul-instrumenter-loader',
         exclude: [
-          /\.(e2e|spec)\.ts$/,
+          /\.e2e\.ts$/,
           /node_modules/
         ]
       }
