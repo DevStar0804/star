@@ -180,7 +180,7 @@ module.exports = helpers.validate({
   // Other module loader config
   tslint: {
     emitErrors: true,
-    failOnHint: false, //true, : https://github.com/AngularClass/angular2-webpack-starter/issues/374
+    failOnHint: true,
     resourcePath: 'src',
   },
 
