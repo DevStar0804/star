@@ -7,13 +7,15 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+var HMR = process.argv.join('').indexOf('hot') > -1;
 
 var metadata = {
   title: 'Angular2 Webpack Starter by @gdi2990 from @AngularClass',
   baseUrl: '/',
   host: 'localhost',
   port: 3000,
-  ENV: ENV
+  ENV: ENV,
+  HMR: HMR
 };
 /*
  * Config
@@ -31,7 +33,10 @@ module.exports = helpers.validate({
 
   // Config for our build files
   output: {
-    path: helpers.root('dist')
+    path: helpers.root('dist'),
+    filename: '[name].bundle.js',
+    sourceMapFilename: '[name].map',
+    chunkFilename: '[id].chunk.js'
   },
 
   resolve: {
@@ -40,6 +45,7 @@ module.exports = helpers.validate({
 
   module: {
     preLoaders: [
+      // { test: /\.ts$/, loader: 'tslint-loader', exclude: [ helpers.root('node_modules') ] },
       // TODO(gdi2290): `exclude: [ helpers.root('node_modules/rxjs') ]` fixed with rxjs 5 beta.3 release
       { test: /\.js$/, loader: "source-map-loader", exclude: [ helpers.root('node_modules/rxjs') ] }
     ],
@@ -70,12 +76,18 @@ module.exports = helpers.validate({
     new webpack.DefinePlugin({
       'process.env': {
         'ENV': JSON.stringify(metadata.ENV),
-        'NODE_ENV': JSON.stringify(metadata.ENV)
+        'NODE_ENV': JSON.stringify(metadata.ENV),
+        'HMR': HMR
       }
     })
   ],
 
   // Other module loader config
+  tslint: {
+    emitErrors: false,
+    failOnHint: false,
+    resourcePath: 'src',
+  },
 
   // our Webpack Development Server config
   devServer: {
