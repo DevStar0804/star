@@ -1,23 +1,13 @@
-/**
- * @author: @AngularClass
- */
+// @AngularClass
 
 var helpers = require('./helpers');
-
-/**
- * Webpack Plugins
- */
+// Webpack Plugins
 var ProvidePlugin = require('webpack/lib/ProvidePlugin');
 var DefinePlugin  = require('webpack/lib/DefinePlugin');
+var ENV = process.env.ENV = process.env.NODE_ENV = 'test';
 
-
-/**
- * Webpack Constants
- */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'test';
-
-/**
- * Webpack Configuration
+/*
+ * Config
  */
 module.exports = {
   devtool: 'source-map',
@@ -57,7 +47,7 @@ module.exports = {
       { test: /\.css$/,  loader: 'raw-loader', exclude: [ helpers.root('src/index.html') ] }
     ],
     postLoaders: [
-      // Instrument only testing sources with Istanbul
+      // instrument only testing sources with Istanbul
       {
         test: /\.(js|ts)$/,
         include: helpers.root('src'),
