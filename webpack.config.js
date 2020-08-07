@@ -1,23 +1,16 @@
-/**
- * @author: @AngularClass
- */
+// @AngularClass
 
 var webpack = require('webpack');
 var helpers = require('./helpers');
 
-/**
- * Webpack Plugins
- */
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ForkCheckerPlugin = require('awesome-typescript-loader').ForkCheckerPlugin;
 
-/**
- * Webpack Constants
- */
-const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-const HMR = helpers.hasProcessFlag('hot');
-const METADATA = {
+var ENV = process.env.ENV = process.env.NODE_ENV = 'development';
+var HMR = helpers.hasProcessFlag('hot');
+
+var metadata = {
   title: 'Angular2 Webpack Starter by @gdi2990 from @AngularClass',
   baseUrl: '/',
   host: 'localhost',
@@ -25,21 +18,19 @@ const METADATA = {
   ENV: ENV,
   HMR: HMR
 };
-
-/**
- * Webpack configuration
+/*
+ * Config
+ * with default values at webpack.default.conf
  */
 module.exports = {
-
-  // Static data for index.html
-  metadata: METADATA,
-
+  // static data for index.html
+  metadata: metadata,
   devtool: 'cheap-module-eval-source-map',
   // cache: true,
   debug: true,
   // devtool: 'eval' // for faster builds use 'eval'
 
-  // Our Angular.js app
+  // our angular app
   entry: {
     'polyfills': './src/polyfills.ts',
     'vendor': './src/vendor.ts',
@@ -50,7 +41,7 @@ module.exports = {
     extensions: ['', '.ts', '.js']
   },
 
-  // Configuration for our build files
+  // Config for our build files
   output: {
     path: helpers.root('dist'),
     filename: '[name].bundle.js',
@@ -74,7 +65,7 @@ module.exports = {
       // Support for CSS as raw text
       { test: /\.css$/,   loader: 'raw-loader' },
 
-      // Support for .html as raw text
+      // support for .html as raw text
       { test: /\.html$/,  loader: 'raw-loader', exclude: [ helpers.root('src/index.html') ] }
 
     ]
@@ -84,28 +75,28 @@ module.exports = {
     new ForkCheckerPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(true),
     new webpack.optimize.CommonsChunkPlugin({ name: ['main', 'vendor', 'polyfills'], minChunks: Infinity }),
-    // Static assets
+    // static assets
     new CopyWebpackPlugin([ { from: 'src/assets', to: 'assets' } ]),
-    // Generating HTML
+    // generating html
     new HtmlWebpackPlugin({ template: 'src/index.html', chunksSortMode: 'none' }),
     // Environment helpers (when adding more properties make sure you include them in custom-typings.d.ts)
     new webpack.DefinePlugin({
-      'ENV': JSON.stringify(METADATA.ENV),
+      'ENV': JSON.stringify(metadata.ENV),
       'HMR': HMR
     })
   ],
 
   // Other module loader config
 
-  // Our Webpack Development Server config
+  // our Webpack Development Server config
   tslint: {
     emitErrors: false,
     failOnHint: false,
     resourcePath: 'src',
   },
   devServer: {
-    port: METADATA.port,
-    host: METADATA.host,
+    port: metadata.port,
+    host: metadata.host,
     historyApiFallback: true,
     watchOptions: {
       aggregateTimeout: 300,
