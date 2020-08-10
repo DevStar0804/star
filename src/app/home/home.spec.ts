@@ -10,12 +10,11 @@ import {
 import {Component, provide} from 'angular2/core';
 import {BaseRequestOptions, Http} from 'angular2/http';
 import {MockBackend} from 'angular2/http/testing';
-import {WebpackState} from 'angular2-hmr';
+
 
 // Load the implementations that should be tested
 import {Home} from './home';
 import {Title} from './services/title';
-import {AppState} from '../app.service';
 
 describe('Home', () => {
   // provide our implementations or mocks to the dependency injector
@@ -29,14 +28,12 @@ describe('Home', () => {
       deps: [MockBackend, BaseRequestOptions]
     }),
 
-    WebpackState,
-    AppState,
     Title,
     Home
   ]);
 
   it('should have default data', inject([ Home ], (home) => {
-    expect(home.localState).toEqual({ value: '' });
+    expect(home.data).toEqual({ value: '' });
   }));
 
   it('should have a title', inject([ Home ], (home) => {
