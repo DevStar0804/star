@@ -56,17 +56,17 @@ export class AppModule {
     delete store.state;
   }
   hmrOnDestroy(store) {
-    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    var cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
     // recreate elements
-    const state = this.appState._state;
+    var state = this.appState._state;
     store.state = state;
-    store.disposeOldHosts = createNewHosts(cmpLocation);
+    store.disposeOldHosts = createNewHosts(cmpLocation)
     // remove styles
     removeNgStyles();
   }
   hmrAfterDestroy(store) {
     // display new elements
-    store.disposeOldHosts();
+    store.disposeOldHosts()
     delete store.disposeOldHosts;
   }
 }
